@@ -31,7 +31,7 @@ def have_password_symbols(password):
 
 
 def have_both_upper_and_lower_cases(password):
-    return (not password.islower() and not password.isupper())
+    return not password.islower() and not password.isupper()
 
 
 def have_numerical_digits(password):
