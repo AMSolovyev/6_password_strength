@@ -10,7 +10,8 @@ def is_password_in_blacklist(file_path='blacklist.txt'):
         return None
 
 
-def get_rating(password, password_rating, min_password_len):
+def get_rating(password, password_rating):
+    min_password_len = 6
     if any(char in punctuation for char in password):
         password_rating += 1
     if len(password) >= min_password_len:
@@ -39,12 +40,11 @@ def get_password():
 
 if __name__ == "__main__":
     password_rating = 0
-    min_password_len = 6
     max_password_len = 10
     password = get_password()
     blacklist = is_password_in_blacklist()
     password_rating = get_rating(
-        password, password_rating, min_password_len)
+        password, password_rating)
 print_password_strength(
     'The bad password is 1, the good password is 10.'
     ' Your password strength is  : ', password_rating)
