@@ -9,6 +9,8 @@ The script ```password_strength``` evaluates the user's password and gives an es
    - prohibition of words found in the user's personal information;
    - prohibition of passwords that match the format of calendar dates.
 
+There are bad passwords in the ```blacklist.txt```
+
 
 # Quickstart 
 
@@ -20,17 +22,9 @@ On Windows you use similarly.
 
 You can print data like this: 
 ```
-Введите пароль123456@
-Введите имя файла чёрного списка:black.txt
-Введите имя файла с персональной информацией:g
-Файл не существует g
-Введите данные через пробел
-====================================================================================================
-Введите имя файла с полным и кратким названием компании:
-Файл не существует 
-Введите данные через пробел
-====================================================================================================
-Оценка сложности пароля:   5
+Input your password: 
+The bad password is 1, the good password is 10. Your password strength is  :  6
+
 ```
 
 # Project Goals
