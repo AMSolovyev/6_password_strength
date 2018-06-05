@@ -2,7 +2,7 @@ import getpass
 from string import punctuation
 
 
-def is_password_in_blacklist(file_path='blacklist.txt'):
+def load_password_in_blacklist(file_path='blacklist.txt'):
     try:
         with open(file_path, 'r') as file_handler:
             return file_handler.read().split('\n')
@@ -10,8 +10,9 @@ def is_password_in_blacklist(file_path='blacklist.txt'):
         return None
 
 
-def get_rating(password, password_rating):
+def get_rating(password, blacklist):
     max_password_len = 6
+    password_rating = 0
     if len(password) >= max_password_len:
         password_rating += 2
     if any(char in punctuation for char in password):
@@ -35,11 +36,11 @@ def get_password():
 
 
 if __name__ == "__main__":
-    password_rating = 0
     password = get_password()
-    blacklist = is_password_in_blacklist()
-    password_rating = get_rating(
-        password, password_rating)
-print_password_strength(
-    'The bad password is 1, the good password is 10.'
-    ' Your password strength is  : ', password_rating)
+    blacklist = load_password_in_blacklist()
+    password_rating = get_rating(password, blacklist)
+    print_password_strength(
+        'The bad password is 1,\n'
+        'the good password is 10.''\n'
+        'Your password strength is  : ',
+        password_rating)
